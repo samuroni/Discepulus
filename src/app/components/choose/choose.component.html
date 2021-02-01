@@ -1,0 +1,136 @@
+<div id="formScelta" class="hide">
+    <h1 class="bg-light text-center">Scelta alunno casuale</h1>
+    <div id="sceltaMaterie" class="d-flex justify-content-between">
+      <h3 class="bg-light sceltaMateria" id="scegliIta">Scegli per Italiano</h3>
+      <h3 class="bg-light sceltaMateria" id="scegliSto">Scegli per Storia</h3>
+    </div>
+    <div id="sceltaClassi" class="d-flex justify-content-between">
+      <h3 class="bg-light sceltaClasse" id="scegli1a">Classe 1A</h3>
+      <h3 class="bg-light sceltaClasse" id="scegli1b">Classe 1B</h3>
+      <h3 class="bg-light sceltaClasse" id="scegli2b">Classe 2B</h3>
+    </div>
+
+    <div id="tabellaSceltaIta1A" class="hide studentTab">
+      <h3 id="scegliAlunnoRandom1" class="scegliAlunnoRandom" (click)="choseRandom('1A', 'isChosenIta')">Scegli un alunno fortunato per italiano classe 1A!</h3>
+      <table class="table table-striped bg-light classe1A hide" id="tab1A">
+        <thead>
+          <tr>
+            <th scope="col">Cognome</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Data interrogazione</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody1Aita" >
+          <tr *ngFor="let alumno of alumniClassTopic('1A', 'isChosenIta'); let i = index;">
+            <td> {{alumno.surname}} </td>
+            <td> {{alumno.name}} </td>
+            <input
+              name="chosenDate"
+              type="date"
+              placeholede="insert date"
+              value= {{alumno.dateIta}}
+              [(ngModel)] = "radio"
+            >
+            <button class="btn btn-danger" (click)="deleteChosen(i, '1A', 'isChosenIta')">Annulla</button>
+          </tr>
+        </tbody >
+      </table>
+      <button class="btn btn-danger" (click)=" resetChosenList ('isChosenIta', '1A')">Reset lista scelti</button>
+    </div>
+
+    <!-- <div id="tabelleScelte">
+      <div id="tabelleItaliano">
+        <div id="tabellaSceltaIta1A" class="hide studentTab">
+        <h3 id="scegliAlunnoRandom1" class="scegliAlunnoRandom">Scegli un alunno fortunato per italiano classe 1A!</h3>
+         <table class="table table-striped bg-light" id="tabIta1a">
+            <thead>
+             <tr>
+                <th scope="col">Cognome</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Interrogato il</th>
+             </tr>
+           </thead>
+           <tbody id="tabBodyIta1a"></tbody>
+         </table>
+         <button id="resetButton1" class="btn btn-danger">Reset lista interrogazione</button>
+        </div>
+
+        <div id="tabellaSceltaIta1B" class="hide studentTab">
+        <h3 id="scegliAlunnoRandom2" class="scegliAlunnoRandom">Scegli un alunno fortunato per italiano classe 1B!</h3>
+          <table class="table table-striped bg-light" id="tabIta1b">
+            <thead>
+              <tr>
+                <th scope="col">Cognome</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Interrogato il</th>
+              </tr>
+            </thead>
+            <tbody id="tabBodyIta1b"></tbody>
+          </table>
+          <button id="resetButton3" class="btn btn-danger">Reset lista interrogazione</button>
+        </div>
+
+        <div id="tabellaSceltaIta2B" class="hide studentTab">
+        <h3 id="scegliAlunnoRandom3" class="scegliAlunnoRandom">Scegli un alunno fortunato per italiano classe 2B!</h3>
+          <table class="table table-striped bg-light" id="tabIta2b">
+            <thead>
+              <tr>
+                <th scope="col">Cognome</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Interrogato il</th>
+              </tr>
+            </thead>
+            <tbody id="tabBodyIta2b"></tbody>
+          </table>
+          <button id="resetButton5" class="btn btn-danger">Reset lista interrogazione</button>
+        </div>
+      </div>
+
+      <div id="tabelleStoria">
+        <div id="tabellaSceltaSto1A" class="hide studentTab">
+        <h3 id="scegliAlunnoRandom4" class="scegliAlunnoRandom">Scegli un alunno fortunato per storia classe 1A!</h3>
+          <table class="table table-striped bg-light" id="tabSto1a">
+            <thead>
+              <tr>
+                <th scope="col">Cognome</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Interrogato il</th>
+              </tr>
+            </thead>
+            <tbody id="tabBodySto1a"></tbody>
+          </table>
+          <button id="resetButton2" class="btn btn-danger">Reset lista interrogazione</button>
+        </div>
+
+        <div id="tabellaSceltaSto1B" class="hide studentTab">
+        <h3 id="scegliAlunnoRandom5" class="scegliAlunnoRandom">Scegli un alunno fortunato per storia classe 1B!</h3>
+          <table class="table table-striped bg-light" id="tabSto1b">
+            <thead>
+              <tr>
+                <th scope="col">Cognome</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Interrogato il</th>
+              </tr>
+            </thead>
+            <tbody id="tabBodySto1b"></tbody>
+          </table>
+          <button id="resetButton4" class="btn btn-danger">Reset lista interrogazione</button>
+        </div>
+
+        <div id="tabellaSceltaSto2B" class="hide studentTab">
+        <h3 id="scegliAlunnoRandom6" class="scegliAlunnoRandom">Scegli un alunno fortunato per storia classe 2B!</h3>
+          <table class="table table-striped bg-light" id="tabSto2B">
+            <thead>
+              <tr>
+                <th scope="col">Cognome</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Interrogato il</th>
+              </tr>
+            </thead>
+            <tbody id="tabBodySto2b"></tbody>
+          </table>
+          <button id="resetButton6" class="btn btn-danger">Reset lista interrogazione</button>
+        </div>
+      </div>
+    </div> -->
+  </div>

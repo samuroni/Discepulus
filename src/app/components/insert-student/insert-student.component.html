@@ -1,0 +1,68 @@
+<div class="formInserimento bg-light hide">
+    <h1>Modulo Inserimento Alunni</h1>  
+    
+    <form class="inserimentoAlunno"  (submit)="addAlumni(); $event.preventDefault()">
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Nome</label>
+        <div class="col-sm-10">
+          <input 
+            type="text" 
+            class="form-control" 
+            id="name" 
+            name="inputName"
+            [(ngModel)] = "inputName"
+          >
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Cognome</label>
+        <div class="col-sm-10">
+          <input 
+            type="text" 
+            class="form-control" 
+            id="surname"
+            name= "inputSurname"
+            [(ngModel)] = "inputSurname"
+          >
+        </div>
+      </div>
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Classe:</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input 
+              class="form-check-input" 
+              type="radio" 
+              name="radio" 
+              id="c1A" 
+              value="1A" 
+              [(ngModel)] = "radio"
+              >
+            <label class="form-check-label" for="gridRadios1">1A</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" 
+              type="radio" 
+              name="radio" 
+              id="c1B" 
+              value="1B"
+              [(ngModel)] = "radio"
+             >
+            <label class="form-check-label" for="gridRadios2">1B</label>
+          </div>
+          <div class="form-check">
+            <input 
+              class="form-check-input" 
+              type="radio" 
+              name="radio" 
+              id="c2B" 
+              value="2B"
+              [(ngModel)] = "radio"
+          >
+            <label class="form-check-label" for="gridRadios3">2B</label>
+          </div>
+        </div>
+      </fieldset>
+      <input type="submit" class="inserisci btn btn-primary" value="Inserisci"/>
+    </form>
+  </div>

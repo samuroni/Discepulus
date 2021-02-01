@@ -1,0 +1,61 @@
+<div class="alunniTabs hide">
+    <h3 class="bg-light h3Classe1A" >Classe 1A</h3>
+  <table class="table table-striped bg-light classe1A hide" id="tab1A">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cognome</th>
+        <th scope="col">Nome</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody1A" >
+      <tr *ngFor="let alumno of alumniClass('1A'); let i = index;">
+        <th> {{i + 1}} </th>
+        <td> {{alumno.name}} </td>
+        <td>{{alumno.surname}}</td>
+        <button class="btn btn-primary" (click)="editAlumno(i, '1A')">Modifica</button>
+        <button class="btn btn-danger" (click)="deleteAlumno(alumno)">Elimina</button>
+      </tr>
+    </tbody >
+  </table>
+</div>
+
+<div class="alunniTabs hide">
+  <h3 class="bg-light h3Classe1B" >Classe 1B</h3>
+  <table class="table table-striped bg-light classe1B hide" id="tab1B">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cognome</th>
+      <th scope="col">Nome</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody1B" >
+    <tr *ngFor="let alumno of alumniClass('1B'); let i = index;">
+      <th> {{i + 1}} </th>
+      <td> {{alumno.name}} </td>
+      <td>{{alumno.surname}}</td>
+    </tr>
+  </tbody >
+  </table>
+</div>
+
+<div class="alunniTabs hide">
+  <h3 class="bg-light h3Classe2B" >Classe 2B</h3>
+  <table class="table table-striped bg-light classe2B hide" id="tab2B">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cognome</th>
+        <th scope="col">Nome</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody2b" >
+      <tr *ngFor="let alumno of alumniClass('2B'); let i = index;">
+        <th> {{i + 1}} </th>
+        <td> {{alumno.name}} </td>
+        <td>{{alumno.surname}}</td>
+      </tr>
+    </tbody >
+  </table>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from "./../../app.component"
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,4 +13,5 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }

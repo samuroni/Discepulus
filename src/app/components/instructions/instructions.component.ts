@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstructionsComponent implements OnInit {
 
+  
+  isShow = false;
+  
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
+ 
+  toggleDisplay() {
+    this.isShow = !this.isShow;
+  }
 }

@@ -10,6 +10,7 @@ import { InsertStudentComponent } from './components/insert-student/insert-stude
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ChooseComponent } from './components/choose/choose.component';
 import { FormsModule } from '@angular/forms';
+import { AlumniListComponent } from './components/alumni-list/alumni-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     AlumniTabsComponent,
     InsertStudentComponent,
     CalendarComponent,
-    ChooseComponent
+    ChooseComponent,
+    AlumniListComponent
   ],
   imports: [
     BrowserModule,

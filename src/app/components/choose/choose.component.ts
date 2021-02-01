@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { alumniService } from './../../models/alumni.service';
+import { alumniService } from '../../service/alumni.service';
 import { alumniData } from './../../models/alumniData';
 
 @Component({

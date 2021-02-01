@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { alumniService } from './../../models/alumni.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { alumniService } from '../../service/alumni.service';
 import { alumniData } from './../../models/alumniData';
 
 
@@ -10,27 +11,30 @@ import { alumniData } from './../../models/alumniData';
 })
 export class AlumniTabsComponent implements OnInit {
 
+  @Input() selectedClass:string = "1A";
   alumni:alumniData[];
   deleteButton:string;
 
-  constructor(private alumniServices:alumniService) { }
-
+  constructor(private alumniServices:alumniService, private route:ActivatedRoute) {
+  }
+  
   ngOnInit(): void {
-    this.alumni = this.alumniServices.loadAlunni() || [];
+    const selectedClasse = this.route.snapshot.params.selectedClass || this.selectedClass || '0A';
+    this.alumni = this.alumniServices.loadAlunni().filter(alumno => alumno.class === selectedClasse) || [];
   }
 
   alumniClass(classe:string) {
    return this.alumni.filter(alumno => alumno.class === classe) || [];
   }
 
-  deleteAlumno (alumno) {
+  deleteAlumno (alumnoToDelete) {
     const check = confirm("Sei sicuro di voler eliminare questo alunno?")
     if (check){
-    console.log("prima ", this.alumni)
-
-    this.alumni = this.alumni.filter(alumno => alumno.id !== "")}
-    console.log("dopo " , this.alumni)
+   
+    this.alumni = this.alumni.filter(alunno => alumnoToDelete.id !== alunno.id);
+    console.log(this.alumni)
     // this.alumniServices.saveAlunni(this.alumni);
+    };
   };
 
 };

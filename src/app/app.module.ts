@@ -11,6 +11,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { ChooseComponent } from './components/choose/choose.component';
 import { FormsModule } from '@angular/forms';
 import { AlumniListComponent } from './components/alumni-list/alumni-list.component';
+import { ChosenListComponent } from './components/chosen-list/chosen-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AlumniListComponent } from './components/alumni-list/alumni-list.compon
     InsertStudentComponent,
     CalendarComponent,
     ChooseComponent,
-    AlumniListComponent
+    AlumniListComponent,
+    ChosenListComponent
   ],
   imports: [
     BrowserModule,

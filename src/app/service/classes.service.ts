@@ -7,10 +7,12 @@ export class ClassesService {
 
   constructor() { }
 
+  classes:string[]; 
   getClassesList() {
-    return [
-      '1A','1B','2B'
-    ]
-  }
+    return this.classes
+  };
 
-}
+  choseClass(classe:string){
+    return this.classes = [classe]
+  }
+};

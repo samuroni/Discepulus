@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { alumniService } from '../../service/alumni.service';
 import { alumniData } from './../../models/alumniData';
 
-
 @Component({
   selector: 'app-alumni-tabs',
   templateUrl: './alumni-tabs.component.html',
@@ -13,10 +12,8 @@ export class AlumniTabsComponent implements OnInit {
 
   @Input() selectedClass:string = "1A";
   alumni:alumniData[];
-  deleteButton:string;
 
-  constructor(private alumniServices:alumniService, private route:ActivatedRoute) {
-  }
+  constructor(private alumniServices:alumniService, private route:ActivatedRoute) {}
   
   ngOnInit(): void {
     const selectedClasse = this.route.snapshot.params.selectedClass || this.selectedClass || '0A';
@@ -27,14 +24,27 @@ export class AlumniTabsComponent implements OnInit {
    return this.alumni.filter(alumno => alumno.class === classe) || [];
   }
 
+  saveAfterModification(alumni){
+    var alumniEdited = this.alumniServices.loadAlunni().filter(alumno => alumno.class !== this.selectedClass);
+    alumniEdited.push( ...alumni );
+    this.alumniServices.saveAlunni(alumniEdited);
+  };
+
   deleteAlumno (alumnoToDelete) {
-    const check = confirm("Sei sicuro di voler eliminare questo alunno?")
+    const check = confirm("Sei sicuro di voler eliminare " + alumnoToDelete.name + " " + alumnoToDelete.surname + "dalla classe " + alumnoToDelete.class + "?")
     if (check){
-   
     this.alumni = this.alumni.filter(alunno => alumnoToDelete.id !== alunno.id);
     console.log(this.alumni)
-    // this.alumniServices.saveAlunni(this.alumni);
+    this.saveAfterModification(this.alumni)
     };
   };
 
+  editAlumno (alumnoToEdit){
+    const check = confirm("Sei sicuro di voler modificare " + alumnoToEdit.name + " " + alumnoToEdit.surname + "della classe " + alumnoToEdit.class + "?")
+    if(check){
+      alumnoToEdit.name = prompt("Inserisci il nuovo nome:");
+      alumnoToEdit.surname = prompt("Inserisci il nuovo cognome:")  
+      this.saveAfterModification(this.alumni)
+    };
+  };
 };

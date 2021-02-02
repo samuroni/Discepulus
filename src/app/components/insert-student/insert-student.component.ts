@@ -24,34 +24,24 @@ export class InsertStudentComponent implements OnInit {
     this.alumniServices.saveAlunni(this.alumni);
   }
 
-  whichClass () {
-      if (this.radio) {return this.radio} 
-      else{alert("Non hai selezionato una classe!")}
-    }
-    
-
   addAlumni () {
-
-    let alumno:alumniData = {
-      name: this.inputName,
-      surname: this.inputSurname,
-      class: this.whichClass(),
-      id: Date.now() + this.inputName + this.inputSurname,
-      isChosenIta: false,
-      isChosenSto: false,
-      dateIta: undefined,
-      dateSto: undefined
-    }; 
- 
-    this.alumni.push(alumno);
-    this.saveAlumni();
-    this.inputName = "";
-    this.inputSurname = "";
-    console.log(this.alumni)
-  }
-  
-
-
-
-
+    if (this.radio){
+      let alumno:alumniData = {
+        name: this.inputName,
+        surname: this.inputSurname,
+        class: this.radio,
+        id: Date.now() + this.inputName + this.inputSurname,
+        isChosenIta: false,
+        isChosenSto: false,
+        dateIta: undefined,
+        dateSto: undefined
+      }; 
+      this.alumni.push(alumno);
+      this.saveAlumni();
+      alert("L' alunno " + alumno.name + " " + alumno.surname + " è stato inserito nella classe " + alumno.class);
+      this.inputName = "";
+      this.inputSurname = "";
+      console.log(this.alumni)
+    } else {alert("Devi selezionare una classe!")};
+  };
 }

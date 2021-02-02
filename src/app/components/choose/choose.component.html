@@ -1,16 +1,20 @@
 <div id="formScelta" class="hide">
-    <h1 class="bg-light text-center">Scelta alunno casuale</h1>
+    <h1 class="bg-light text-center pageTopic">Scelta alunno casuale</h1>
     <div id="sceltaMaterie" class="d-flex justify-content-between">
-      <h3 class="bg-light sceltaMateria" id="scegliIta">Scegli per Italiano</h3>
-      <h3 class="bg-light sceltaMateria" id="scegliSto">Scegli per Storia</h3>
+      <h3 class="bg-light sceltaMateria" id="scegliIta" (click)="choseThisSubject('italiano')">Scegli per Italiano</h3>
+      <h3 class="bg-light sceltaMateria" id="scegliSto" (click)="choseThisSubject('storia')">Scegli per Storia</h3>
     </div>
     <div id="sceltaClassi" class="d-flex justify-content-between">
-      <h3 class="bg-light sceltaClasse" id="scegli1a">Classe 1A</h3>
-      <h3 class="bg-light sceltaClasse" id="scegli1b">Classe 1B</h3>
-      <h3 class="bg-light sceltaClasse" id="scegli2b">Classe 2B</h3>
+      <h3 class="bg-light sceltaClasse" id="scegli1a" (click)="choseThisClass('1A')">Classe 1A</h3>
+      <h3 class="bg-light sceltaClasse" id="scegli1b"(click)="choseThisClass('1B')">Classe 1B</h3>
+      <h3 class="bg-light sceltaClasse" id="scegli2b"(click)="choseThisClass('2B')">Classe 2B</h3>
     </div>
 
-    <div id="tabellaSceltaIta1A" class="hide studentTab">
+    <ng-container *ngFor= "let classe of classes">
+      <app-chosen-list [selectedClass]= "classe" [selectedSubject]= "selectedSubject"></app-chosen-list>
+    </ng-container>
+
+    <!-- <div id="tabellaSceltaIta1A" class="hide studentTab">
       <h3 id="scegliAlunnoRandom1" class="scegliAlunnoRandom" (click)="choseRandom('1A', 'isChosenIta')">Scegli un alunno fortunato per italiano classe 1A!</h3>
       <table class="table table-striped bg-light classe1A hide" id="tab1A">
         <thead>
@@ -36,7 +40,7 @@
         </tbody >
       </table>
       <button class="btn btn-danger" (click)=" resetChosenList ('isChosenIta', '1A')">Reset lista scelti</button>
-    </div>
+    </div> -->
 
     <!-- <div id="tabelleScelte">
       <div id="tabelleItaliano">

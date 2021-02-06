@@ -18,6 +18,22 @@ export class AlumniTabsComponent implements OnInit {
   ngOnInit(): void {
     const selectedClasse = this.route.snapshot.params.selectedClass || this.selectedClass || '0A';
     this.alumni = this.alumniServices.loadAlunni().filter(alumno => alumno.class === selectedClasse) || [];
+    
+    this.alumni.sort(function(a, b) {
+      var nameA = a.surname.toUpperCase(); 
+      var nameB = b.surname.toUpperCase(); 
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {            
+        return 1;
+      }
+      return 0;
+    });
+
+    
+ 
+
   }
 
   alumniClass(classe:string) {
@@ -43,7 +59,9 @@ export class AlumniTabsComponent implements OnInit {
     const check = confirm("Sei sicuro di voler modificare " + alumnoToEdit.name + " " + alumnoToEdit.surname + "della classe " + alumnoToEdit.class + "?")
     if(check){
       alumnoToEdit.name = prompt("Inserisci il nuovo nome:");
-      alumnoToEdit.surname = prompt("Inserisci il nuovo cognome:")  
+      alumnoToEdit.surname = prompt("Inserisci il nuovo cognome:")
+      alumnoToEdit.name = alumnoToEdit.name.charAt(0).toUpperCase() + alumnoToEdit.name.slice(1)
+      alumnoToEdit.surname = alumnoToEdit.surname.charAt(0).toUpperCase() + alumnoToEdit.surname.slice(1)  
       this.saveAfterModification(this.alumni)
     };
   };

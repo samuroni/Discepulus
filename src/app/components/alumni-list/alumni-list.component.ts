@@ -8,7 +8,7 @@ import { ClassesService } from 'src/app/service/classes.service';
 })
 export class AlumniListComponent implements OnInit {
 
-  classes:string[];
+  classes:string[] = [];
   constructor(private classesService:ClassesService) { }
   
   ngOnInit(): void {}

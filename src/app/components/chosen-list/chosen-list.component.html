@@ -1,5 +1,5 @@
 <div id="tabellaSceltaIta1A" class="hide studentTab">
-    <h3 id="scegliAlunnoRandom1" class="scegliAlunnoRandom" (click)="choseRandom(topicToDisplay())">Scegli un alunno fortunato per {{selectedSubject}} classe {{selectedClass}}!</h3>
+    <h3 id="scegliAlunnoRandom1" class="scegliAlunnoRandom" (click)="choseRandom(topicToDisplay(), indexTopic())">Scegli un alunno fortunato per {{selectedSubject}} classe {{selectedClass}}!</h3>
     <table class="table table-striped bg-light classe1A hide" id="tab1A">
       <thead>
         <tr>
@@ -17,7 +17,8 @@
             type="date"
             placeholede="insert date"
             value= {{alumno.dateIta}}
-            [(ngModel)] = "radio"
+            [(ngModel)] = "dateIta"
+            (change)="setDate(alumno);"
           >
           <button class="btn btn-danger" (click)="deleteChosen(alumno)">Annulla</button>
         </tr>

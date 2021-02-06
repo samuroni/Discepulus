@@ -1,8 +1,8 @@
 <div class="alumni-list">
     <div id="sceltaClassi" class="d-flex justify-content-between">
-        <h3 class="bg-light sceltaClasse" id="scegli1a" (click)= "choseThisClass('1A')">Classe 1A</h3>
-        <h3 class="bg-light sceltaClasse" id="scegli1b" (click)= "choseThisClass('1B')">Classe 1B</h3>
-        <h3 class="bg-light sceltaClasse" id="scegli2b" (click)= "choseThisClass('2B')">Classe 2B</h3>
+        <h3 class="bg-light sceltaClasse {{(classes[0] === '1A' ? 'selected' : '')}}" id="scegli1a" (click)= "choseThisClass('1A')">Classe 1A</h3>
+        <h3 class="bg-light sceltaClasse {{(classes[0] === '1B' ? 'selected' : '')}}" id="scegli1b" (click)= "choseThisClass('1B')">Classe 1B</h3>
+        <h3 class="bg-light sceltaClasse {{(classes[0] === '2B' ? 'selected' : '')}}" id="scegli2b" (click)= "choseThisClass('2B')">Classe 2B</h3>
     </div>
     <ng-container *ngFor= "let classe of classes">
         <app-alumni-tabs [selectedClass]= "classe"></app-alumni-tabs>

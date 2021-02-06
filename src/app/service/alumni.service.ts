@@ -6,7 +6,9 @@ import { alumniData } from '../models/alumniData';
 })
 export class alumniService {
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
   saveAlunni (alumni:alumniData[]){
     localStorage.setItem("alumniDataStore", JSON.stringify(alumni));
@@ -16,5 +18,6 @@ export class alumniService {
     let alumni = JSON.parse(localStorage.getItem("alumniDataStore"));
     return alumni;
   };
+
 }
 

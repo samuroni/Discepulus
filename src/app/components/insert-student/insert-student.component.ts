@@ -27,8 +27,8 @@ export class InsertStudentComponent implements OnInit {
   addAlumni () {
     if (this.radio){
       let alumno:alumniData = {
-        name: this.inputName,
-        surname: this.inputSurname,
+        name: this.inputName.charAt(0).toUpperCase() + this.inputName.slice(1),
+        surname: this.inputSurname.charAt(0).toUpperCase() + this.inputSurname.slice(1),
         class: this.radio,
         id: Date.now() + this.inputName + this.inputSurname,
         isChosenIta: false,
@@ -37,6 +37,7 @@ export class InsertStudentComponent implements OnInit {
         dateSto: undefined
       }; 
       this.alumni.push(alumno);
+      
       this.saveAlumni();
       alert("L' alunno " + alumno.name + " " + alumno.surname + " è stato inserito nella classe " + alumno.class);
       this.inputName = "";

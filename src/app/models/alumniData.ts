@@ -7,4 +7,6 @@ export class alumniData {
     isChosenSto: boolean;
     dateIta?: Date;
     dateSto?: Date;
+    indexIta?: any;
+    indexSto?: any
 }

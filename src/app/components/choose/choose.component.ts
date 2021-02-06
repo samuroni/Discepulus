@@ -9,8 +9,8 @@ import { ChosesubjectService } from './../../service/chosesubject.service'
 })
 export class ChooseComponent implements OnInit {
 
-  selectedSubject:string = "materia"
-  classes:string[];
+  selectedSubject:string = "italiano"
+  classes:string[] = [];
   constructor(private classesService:ClassesService, private choseSubjectService:ChosesubjectService) { }
 
   ngOnInit(): void {};
@@ -26,7 +26,6 @@ export class ChooseComponent implements OnInit {
     this.selectedSubject = this.choseSubjectService.getSubjectList()
   }
  
-
 
 };
 

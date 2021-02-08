@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+// import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -12,6 +15,12 @@ import { ChooseComponent } from './components/choose/choose.component';
 import { FormsModule } from '@angular/forms';
 import { AlumniListComponent } from './components/alumni-list/alumni-list.component';
 import { ChosenListComponent } from './components/chosen-list/chosen-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ChoseCalendarComponent } from './components/chose-calendar/chose-calendar.component';
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -23,12 +32,15 @@ import { ChosenListComponent } from './components/chosen-list/chosen-list.compon
     CalendarComponent,
     ChooseComponent,
     AlumniListComponent,
-    ChosenListComponent
+    ChosenListComponent,
+    ChoseCalendarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

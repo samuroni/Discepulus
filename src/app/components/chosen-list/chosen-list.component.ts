@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RandomIndexServiceService } from 'src/app/service/random-index-service.service';
 import { alumniService } from '../../service/alumni.service';
 import { alumniData } from './../../models/alumniData';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-chosen-list',
@@ -13,8 +14,7 @@ export class ChosenListComponent implements OnInit {
 
   @Input() selectedSubject:string = "italiano"
   @Input() selectedClass:string = "2B";
-  alumni:alumniData[];
-  chosenDate:Date
+  alumni:alumniData[];  
 
   constructor(private alumniServices:alumniService, private randomIndexService:RandomIndexServiceService, private route:ActivatedRoute) { }
 
@@ -91,6 +91,7 @@ export class ChosenListComponent implements OnInit {
     const check = confirm("Sei sicuro di voler annullare la scelta?")
     if (check){
     alumnoToDelete[this.topicToDisplay()] = false ;
+    alumnoToDelete[this.topicToDisplay()=== 'isChosenIta'? 'dateIta' : 'dateSto'] = undefined;
     this.saveAfterModification()
     console.log(alumnoToDelete)
     };
@@ -101,14 +102,21 @@ export class ChosenListComponent implements OnInit {
     if (check){
       for(let alumno of this.alumni){
           alumno[topic] = false;
+          alumno[this.topicToDisplay()=== 'isChosenIta'? 'dateIta' : 'dateSto'] = undefined;
       };
     this.saveAfterModification();
     };
   };
 
-  setDate (alumno){
-    alumno.dateIta= this.chosenDate;
-    console.log('DA SETDATE', this.chosenDate)
+  setDate (alumno, chosenDate){
+    alumno[this.topicToDisplay()=== 'isChosenIta'? 'dateIta' : 'dateSto']= chosenDate;
+    if(alumno.dateSto === alumno.dateIta){alert("Attenzione! Questo alunno deve essere interrogato in un'altra materia in questa data!")
+    let check = confirm("Vuoi comunque assegnare l'interrogazione nella data selezionata?")
+      if(check){
+        this.saveAfterModification();
+      } else { alumno[this.topicToDisplay()=== 'isChosenIta'? 'dateIta' : 'dateSto']= undefined}
+    }
+    this.saveAfterModification();
   };
 
 }

@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { calendarData } from './../../models/calendarData'
-import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
+import { alumniService } from '../../service/alumni.service';
+import { alumniData } from './../../models/alumniData';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -10,29 +14,50 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  @Input() selectedClass:string = "1A";
+  alumni:alumniData[];
+  calendarDataAlumni:calendarData[] = [];
+  constructor(private alumniServices:alumniService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
+    const selectedClasse = this.route.snapshot.params.selectedClass || this.selectedClass || '0A';
+    this.alumni = this.alumniServices.loadAlunni().filter(alumno => alumno.class === selectedClasse) || [];
 
-calendarDataAlumni:calendarData[];
+    
+      for (let i = 0; i < this.alumni.length; i++) {
+        let student = {
+          title: this.alumni[i].name + " " + this.alumni[i].surname,
+          date: this.alumni[i].dateIta,
+          backgroundColor: "#709fb0",
+          borderColor: "#709fb0"
+        }
+        this.calendarDataAlumni.push(student);
+      };
+      for (let i = 0; i < this.alumni.length; i++) {
+        let student = {
+          title: this.alumni[i].name + " " + this.alumni[i].surname,
+          date: this.alumni[i].dateSto,
+          backgroundColor: "#d8ac9c",
+          borderColor: "#d8ac9c"
+        }
+        this.calendarDataAlumni.push(student);
+      }
+    
 
-dati = (array)=>{
-  for (let i = 0; i < array.length; i++) {
-    let student = {
-      title: array[i].name + " " + array[i].surname,
-      start: array[i].intDateIta,
-    }
-    this.calendarDataAlumni.push(student);
-  };
-  for (let i = 0; i < array.length; i++) {
-    let student = {
-      title: array[i].name + " " + array[i].surname,
-      start: array[i].intDateSto,
-      backgroundColor: "red"
-    }
-    this.calendarDataAlumni.push(student);
   }
+  
+
+
+
+
+
+calendarOptions: CalendarOptions = {
+  initialView: 'dayGridMonth',
+  headerToolbar: {
+  left: 'prev,next today',
+  center: 'title',
+  },
+  events: this.calendarDataAlumni
 };
 
 // drawCalendar(array, buttonUsed, buttonUnused1, buttonUnused2) {

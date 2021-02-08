@@ -1,6 +1,14 @@
 .card {
     margin-top: 10px;
     min-width: 100%;
-    border: 10px solid dimgray;
-    border-radius: 10%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #888888;
+}
+
+.card-header{
+    background-color: #61ca96;
+    color:mintcream;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
 }

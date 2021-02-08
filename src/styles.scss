@@ -2,7 +2,7 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 body{
-    background-color: gray;
+    background-color: #dfdfdf;
 }
 
 h3 {
@@ -27,6 +27,6 @@ td {
 }
 
 .selected {
-    border: 3px solid green;
+    // border: 3px solid green;
     border-radius: 0.3rem;
 }

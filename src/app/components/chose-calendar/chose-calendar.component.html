@@ -1,0 +1,12 @@
+<div class="choseCalendar container">
+
+    <div id="chosecalendar" class="d-flex justify-content-between">
+        <h3 class=" sceltaClasse {{(classes[0] === '1A' ? 'selected' : 'bg-light')}}" id="scegli1a" (click)= "choseThisClass('1A')">Calendario 1A</h3>
+        <h3 class=" sceltaClasse {{(classes[0] === '1B' ? 'selected' : 'bg-light')}}" id="scegli1b" (click)= "choseThisClass('1B')">Calendario 1B</h3>
+        <h3 class=" sceltaClasse {{(classes[0] === '2B' ? 'selected' : 'bg-light')}}" id="scegli2b" (click)= "choseThisClass('2B')">Calendario 2B</h3>
+    </div>
+    <ng-container *ngFor= "let classe of classes">
+        <app-calendar [selectedClass]= "classe"></app-calendar>
+    </ng-container>
+
+</div>

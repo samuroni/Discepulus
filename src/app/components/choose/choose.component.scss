@@ -1,21 +1,29 @@
 .sceltaClasse {
     width: 32%;
-    margin-top: 5px;
-    border: 10px solid dimgray;
-    border-radius: 30%;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #888888;
+    color: #61ca96;
+    margin-bottom: 20px;
 }
 
 .sceltaMateria {
     width: 49%;
-    border: 10px solid dimgray;
-    border-radius: 30%;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #888888;
+    color: #61ca96;
+    margin-bottom: 20px;
 }
 
 .pageTopic{
-    border: 10px solid dimgray;
-    border-radius: 10%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #888888;
+    color: #61ca96;
+    margin-bottom: 20px;
 }
 
 .selected {
-    border-color: forestgreen;
+    background-color: #61ca96;
+    color:mintcream;
 }

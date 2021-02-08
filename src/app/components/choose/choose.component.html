@@ -1,13 +1,13 @@
-<div id="formScelta" class="hide">
+<div id="formScelta" class="container">
     <h1 class="bg-light text-center pageTopic">Scelta alunno casuale</h1>
     <div id="sceltaMaterie" class="d-flex justify-content-between">
-      <h3 class="bg-light sceltaMateria {{(selectedSubject === 'italiano' ? 'selected' : '')}}" id="scegliIta" (click)="choseThisSubject('italiano')">Scegli per Italiano</h3>
-      <h3 class="bg-light sceltaMateria {{(selectedSubject === 'storia' ? 'selected' : '')}}" id="scegliSto" (click)="choseThisSubject('storia')">Scegli per Storia</h3>
+      <h3 class=" sceltaMateria {{(selectedSubject === 'italiano' ? 'selected' : 'bg-light')}}" id="scegliIta" (click)="choseThisSubject('italiano')">Scegli per Italiano</h3>
+      <h3 class=" sceltaMateria {{(selectedSubject === 'storia' ? 'selected' : 'bg-light')}}" id="scegliSto" (click)="choseThisSubject('storia')">Scegli per Storia</h3>
     </div>
     <div id="sceltaClassi" class="d-flex justify-content-between">
-      <h3 class="bg-light sceltaClasse {{(classes[0] === '1A' ? 'selected' : '')}}" id="scegli1a" (click)="choseThisClass('1A')">Classe 1A</h3>
-      <h3 class="bg-light sceltaClasse {{(classes[0] === '1B' ? 'selected' : '')}}" id="scegli1b"(click)="choseThisClass('1B')">Classe 1B</h3>
-      <h3 class="bg-light sceltaClasse {{(classes[0] === '2B' ? 'selected' : '')}}" id="scegli2b"(click)="choseThisClass('2B')">Classe 2B</h3>
+      <h3 class=" sceltaClasse {{(classes[0] === '1A' ? 'selected' : 'bg-light')}}" id="scegli1a" (click)="choseThisClass('1A')">Classe 1A</h3>
+      <h3 class=" sceltaClasse {{(classes[0] === '1B' ? 'selected' : 'bg-light')}}" id="scegli1b"(click)="choseThisClass('1B')">Classe 1B</h3>
+      <h3 class=" sceltaClasse {{(classes[0] === '2B' ? 'selected' : 'bg-light')}}" id="scegli2b"(click)="choseThisClass('2B')">Classe 2B</h3>
     </div>
 
     <ng-container *ngFor= "let classe of classes">

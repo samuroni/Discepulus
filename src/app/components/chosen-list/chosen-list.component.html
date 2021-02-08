@@ -1,4 +1,4 @@
-<div id="tabellaSceltaIta1A" class="hide studentTab">
+<div id="tabellaSceltaIta1A" class="container studentTab">
     <h3 id="scegliAlunnoRandom1" class="scegliAlunnoRandom" (click)="choseRandom(topicToDisplay(), indexTopic())">Scegli un alunno fortunato per {{selectedSubject}} classe {{selectedClass}}!</h3>
     <table class="table table-striped bg-light classe1A hide" id="tab1A">
       <thead>
@@ -14,11 +14,11 @@
           <td> {{alumno.name}} </td>
           <input
             name="chosenDate"
-            type="date"
             placeholede="insert date"
-            value= {{alumno.dateIta}}
-            [(ngModel)] = "dateIta"
-            (change)="setDate(alumno);"
+            [ngModel]="alumno[topicToDisplay()=== 'isChosenIta'? 'dateIta' : 'dateSto'] | date:'yyyy-MM-dd'"
+            (ngModelChange)="setDate(alumno, $event);"
+            type="date"
+                       
           >
           <button class="btn btn-danger" (click)="deleteChosen(alumno)">Annulla</button>
         </tr>

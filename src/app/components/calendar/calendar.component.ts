@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -57,6 +58,7 @@ calendarOptions: CalendarOptions = {
   left: 'prev,next today',
   center: 'title',
   },
+  locale: 'it',
   events: this.calendarDataAlumni
 };
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from "./../../app.component"
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,6 +7,8 @@ import { AppComponent } from "./../../app.component"
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+
+  isCollapsed = false;
 
   constructor() { }
 

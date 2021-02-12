@@ -1,3 +1,4 @@
+// MAIUSCOLOOOOH
 export class alumniData {
     name: string;
     surname: string;

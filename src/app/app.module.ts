@@ -17,6 +17,7 @@ import { AlumniListComponent } from './components/alumni-list/alumni-list.compon
 import { ChosenListComponent } from './components/chosen-list/chosen-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChoseCalendarComponent } from './components/chose-calendar/chose-calendar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
@@ -33,7 +34,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ChooseComponent,
     AlumniListComponent,
     ChosenListComponent,
-    ChoseCalendarComponent
+    ChoseCalendarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,10 @@ import { ChoseCalendarComponent } from './components/chose-calendar/chose-calend
 
 const routes: Routes = [
   {
+    path: '',
+    component: InstructionsComponent,
+  },
+  {
     path: 'instructions',
     component: InstructionsComponent,
   },

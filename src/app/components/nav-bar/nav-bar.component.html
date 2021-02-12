@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     
         <a routerLink="/instructions" class="navbar-brand home" href="#">VotiApp</a>
-        <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" (click)="isShown = !isShown" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngbCollapse]="false">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngClass]="{ 'show': isShown }">
           <div class="navbar-nav">
             <a routerLink="/alumni" class="nav-link nav-item active alunni" aria-current="page" href="#">Alunni</a>
             <a routerLink="/calendars" class="nav-link nav-item active calendario" href="#" id="calendarNav">Calendario</a>
